@@ -1,11 +1,14 @@
 
 
-[data-module=people-picker] select {
-	opacity: 0;
-	width: 100%;
-}
+[data-module=people-picker] {
 
-[data-module=people-picker] .select-container {
-	width: 100%;
-}
+	select {
+		opacity: 0;
+		width: 100%;
+	}
 
+	.select-container {
+		width: 100%;
+	}
+
+}

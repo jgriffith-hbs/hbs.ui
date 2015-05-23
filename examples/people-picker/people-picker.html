@@ -26,6 +26,29 @@
         </select>
     </div>
 
+
+
+    <h1>Basic People Picker With Autocomplete</h1>
+
+    <div data-module="people-picker">
+
+        <script type="text/x-config">{"autocomplete":"window.autocomplete"}</script>
+        <script>
+        window.autocomplete = function(query,callback){
+            return callback([{id:query,text:query},{id:query+'1',text:query+'2'}])
+        }
+        </script>
+
+        <select multiple>
+            <option value="1231">Henry Ward Abbot MBA 1971</option>
+            <option value="1232">Rodrigo Abdalla PLDA 15</option>
+            <option value="1233">Derek G. Abrams MBA 2002</option>
+            <option value="1234" selected>Folarin Z. Adeola PLDA 8</option>
+            <option value="1235">Praveen Akkiraju GMP 4</option>
+            <option value="1236">Miho Aoki, MBA 1987</option>
+            <option value="1237" selected>Wendy L. Cockayne MBA 1998</option>
+        </select>
+    </div>
     
     </body>
 </html>

@@ -7,7 +7,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-
+var jsx = require('gulp-jsx');
 
 // Lint Task
 gulp.task('lint', function() {
@@ -27,6 +27,7 @@ gulp.task('sass', function() {
 gulp.task('scripts', function() {
     return gulp.src(['js/require.js','js/t3.js','js/!(require)*.js'])
         .pipe(concat('hbs.ui.js'))
+        .pipe(jsx({factory:'React.createElement'}))
         .pipe(gulp.dest('dist'))
         .pipe(rename('hbs.ui.min.js'))
         .pipe(uglify())

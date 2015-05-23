@@ -1,27 +1,28 @@
-var HBS = HBS || {
-    UI: Box.Application
-};
     
 HBS.UI.addModule('people-picker', function(context) {
 
     var require = context.getGlobal('require');
     var $ = context.getGlobal('jQuery');
+
+    function autocompleteQuery(params, callback) {
+        var data = {results:[]};
+        context.autocomplete(params.term, function(results) {
+        	data.results = results;
+            callback(data);
+        })
+    };
     
     return {
         init: function() {
 
-            var config = context.getConfig();
-            var autocomplete = null;
-            if (config && config.autocomplete) autocomplete = eval(config.autocomplete);
+			context.autocomplete = eval(context.getConfig('autocomplete'));
 
             var libs = ['https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.js',
-                        'css!https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.css'
-            ]
+                        'css!https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.css']
 
             require(libs, function() {
                 $("select", context.element).each(function() {
                     var el = this;
-
 
                     $.fn.select2.amd.require(['select2/data/array', 'select2/utils'], function(ArrayData, Utils) {
                         function CustomData($element, options) {
@@ -30,28 +31,11 @@ HBS.UI.addModule('people-picker', function(context) {
 
                         Utils.Extend(CustomData, ArrayData);
 
-                        CustomData.prototype.query = function(params, callback) {
-                            var data = {results:[]};
-                            console.info(params);
-
-                            autocomplete(params.term, function(results) {
-                                for (var i = 0; i < results.length; i++) {
-
-                                    data.results.push({
-                                        id: results[i].id,
-                                        text: results[i].text
-                                    });
-                                }
-                                console.info(data)
-
-                                callback(data);
-                            })
-                        };
+                        CustomData.prototype.query = autocompleteQuery;
 
                         var options = {};
-                        if (autocomplete) options.dataAdapter = CustomData;
+                        if (context.autocomplete) options.dataAdapter = CustomData;
                         $(el).select2(options);
-
                     })
 
                 });

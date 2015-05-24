@@ -7,12 +7,11 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var jsx = require('gulp-jsx');
+var react = require('gulp-react');
 
 // Lint Task
 gulp.task('lint', function() {
     return gulp.src(['js/*.js','!js/require.js','!js/t3.js'])
-        .pipe(jsx({factory:'React.createElement'}))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -28,18 +27,29 @@ gulp.task('sass', function() {
 gulp.task('scripts', function() {
     return gulp.src(['js/require.js','js/t3.js','js/!(require)*.js'])
         .pipe(concat('hbs.ui.js'))
-        .pipe(jsx({factory:'React.createElement'}))
         .pipe(gulp.dest('dist'))
         .pipe(rename('hbs.ui.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('jsx', function() {
+  return gulp.src('js/*.jsx')
+    .pipe(react())
+    .on('error', function(e) {
+      console.error(e.message + '\n  in ' + e.fileName)
+      this.end();
+    })
+    .pipe(concat('hbs.ui.jsx.js'))
+    .pipe(gulp.dest('build'))
+})
+
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('js/*.js', ['lint','scripts']);
+    gulp.watch('js/*.jsx', ['jsx','scripts']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['lint', 'sass', 'jsx', 'scripts', 'watch']);

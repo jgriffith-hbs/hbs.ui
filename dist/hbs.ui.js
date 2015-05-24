@@ -3263,7 +3263,7 @@ requireui(['jquery'],function($){
 
 
 
-
+    
 HBS.UI.addModule('framework', function(context) {
 
     var require = context.getGlobal('require');
@@ -3271,7 +3271,7 @@ HBS.UI.addModule('framework', function(context) {
 
     return {
         init: function() {
-
+            
             var libs = ['https://secure.hbs.edu/static/shared/js/framework.js',
                         'css!https://secure.hbs.edu/static/shared/css/framework.css'];
 
@@ -3290,28 +3290,31 @@ HBS.UI.addModule('framework', function(context) {
 
 
 
-
 HBS.UI.addModule('hello-angular', function(context) {
 
     var require = context.getGlobal('require');
 
+    function main(angular){
+        var app = angular.module('hello', []);
+
+        app.controller('HelloController', function($scope) {
+            $scope.$watch('greeting', function(newValue, oldValue) {
+                context.broadcast('greetingchanged', newValue);
+            });
+        });
+
+        context.element.innerHTML = '<div ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"><br/>{{greeting}}</div>';
+
+        angular.bootstrap(document, ['hello']);        
+    }
+
     return {
         init: function() {
-
+            
             var libs = ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js'];
 
             require(libs,function(){
-
-                var app = angular.module('hello', []);
-
-                app.controller('HelloController', function($scope) {
-                    $scope.greeting = 'Welcome!';
-                });
-
-                context.element.innerHTML = '<div ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"></div>';
-
-                angular.bootstrap(document, ['hello']);
-
+                main(angular);
             });
 
         }
@@ -3321,37 +3324,14 @@ HBS.UI.addModule('hello-angular', function(context) {
 
 
 
-
-HBS.UI.addModule('hello-react', function(context) {
-
-    var require = context.getGlobal('require');
-
-    return {
-        init: function() {
-
-            var libs = ['https://fb.me/react-0.13.3.min.js'];
-            require(libs,function(React){
-                React.render(
-                    React.createElement('h1', null, ["Hello World"]),
-                    context.element
-                );
-            });
-
-        }
-    };
-
-});
-
-
-
-
+    
 HBS.UI.addModule('jwplayer', function(context) {
 
     var require = context.getGlobal('require');
 
     return {
         init: function() {
-
+            
             var libs = ['https://jwpsrv.com/library/c4IOKvMwEeOUQyIAC0MJiQ.js'];
             require(libs,function(){
                 jwplayer(context.element.id).setup({
@@ -3367,7 +3347,7 @@ HBS.UI.addModule('jwplayer', function(context) {
 });
 
 
-
+    
 HBS.UI.addModule('people-picker', function(context) {
 
     var require = context.getGlobal('require');
@@ -3380,7 +3360,7 @@ HBS.UI.addModule('people-picker', function(context) {
             callback(data);
         });
     }
-
+    
     return {
         init: function() {
 
@@ -3424,7 +3404,7 @@ HBS.UI.addModule('wysiwyg', function(context) {
 
     return {
         init: function() {
-
+            
             var libs = ['https://tinymce.cachefly.net/4.0/tinymce.min.js'];
 
             require(libs,function(){
@@ -3439,5 +3419,6 @@ HBS.UI.addModule('wysiwyg', function(context) {
         }
     };
 
-});
+}); 
 
+ 

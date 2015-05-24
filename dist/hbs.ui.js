@@ -3264,6 +3264,33 @@ requireui(['jquery'],function($){
 
 
 
+HBS.UI.addModule('framework', function(context) {
+
+    var require = context.getGlobal('require');
+    var $ = context.getGlobal('jQuery');
+
+    return {
+        init: function() {
+
+            var libs = ['https://secure.hbs.edu/static/shared/js/framework.js',
+                        'css!https://secure.hbs.edu/static/shared/css/framework.css'];
+
+            require(libs,function(){
+
+                var frameworkClasses = 'grid-framework type-framework color-framework type-framework pattern-framework component-framework js-framework responsive-framework';
+                $(context.element).addClass(frameworkClasses);
+                $(document).trigger('framework.domupdate');
+                $(context.element).show();
+            });
+
+        }
+    };
+
+});
+
+
+
+
 HBS.UI.addModule('hello-angular', function(context) {
 
     var require = context.getGlobal('require');
@@ -3384,6 +3411,31 @@ HBS.UI.addModule('people-picker', function(context) {
 
                 });
             });
+        }
+    };
+
+});
+
+
+
+HBS.UI.addModule('wysiwyg', function(context) {
+
+    var require = context.getGlobal('require');
+
+    return {
+        init: function() {
+
+            var libs = ['https://tinymce.cachefly.net/4.0/tinymce.min.js'];
+
+            require(libs,function(){
+				tinymce.init({
+				    selector: "#"+context.element.id,
+				    inline: true,
+				    menubar: false,
+				    toolbar: "bold italic | bullist numlist outdent indent"
+				});
+            });
+
         }
     };
 

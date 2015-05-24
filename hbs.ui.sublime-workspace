@@ -163,30 +163,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "js/require.js",
-			"settings":
-			{
-				"buffer_size": 15292,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/t3.js",
-			"settings":
-			{
-				"buffer_size": 7046,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/react-hello.js",
-			"settings":
-			{
-				"buffer_size": 427,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -265,27 +241,46 @@
 	"expanded_folders":
 	[
 		"/C/git/hbs.ui",
-		"/C/git/hbs.ui/js"
+		"/C/git/hbs.ui/examples",
+		"/C/git/hbs.ui/examples/framework",
+		"/C/git/hbs.ui/examples/hello-angular",
+		"/C/git/hbs.ui/examples/hello-react",
+		"/C/git/hbs.ui/examples/jwplayer",
+		"/C/git/hbs.ui/examples/people-picker",
+		"/C/git/hbs.ui/js",
+		"/C/git/hbs.ui/scss"
 	],
 	"file_history":
 	[
-		"/C/git/hbs.ui/js/app.js",
+		"/C/git/hbs.ui/scss/hbs.ui.scss",
+		"/C/git/hbs.ui/js/framework.js",
+		"/C/git/hbs.ui/examples/framework/framework.html",
+		"/C/git/hbs.ui/js/require.js",
+		"/C/git/hbs.ui/js/hello-angular.js",
+		"/C/git/hbs.ui/examples/jwplayer/jwplayer.html",
+		"/C/git/hbs.ui/examples/framework-slideshow/framework-sideshow.html",
+		"/C/git/hbs.ui/js/people-picker.js",
+		"/C/git/hbs.ui/examples/hello-angular/hello-angular.html",
+		"/C/git/hbs.ui/js/t3.js",
+		"/C/git/hbs.ui/examples/react-hello/react-hello.html",
+		"/C/git/hbs.ui/js/hello-react.js",
 		"/C/git/hbs.ui/js/jwplayer.js",
+		"/C/git/hbs.ui/js/app.js",
+		"/C/git/hbs.ui/gulpfile.js",
+		"/C/git/hbs.ui/examples/hello-react/hello-react.html",
+		"/C/Users/jgriffith/AppData/Roaming/Sublime Text 3/Packages/JSHint Gutter/.jshintrc",
+		"/C/Users/jgriffith/AppData/Roaming/Sublime Text 3/Packages/JSHint Gutter/JSHint.sublime-settings",
 		"/C/git/hbs.ui/node_modules/gulp-sass/node_modules/node-sass/node_modules/request/node_modules/har-validator/node_modules/is-my-json-valid/test/json-schema.js",
 		"/C/Users/jgriffith/AppData/Roaming/Sublime Text 3/Packages/JSLint/JSLint.sublime-settings",
 		"/C/git/hbs.ui/hbs.ui.sublime-project",
-		"/C/git/hbs.ui/gulpfile.js",
 		"/C/git/hbs.ui/js/react-hello.js",
 		"/C/Users/jgriffith/Desktop/web.sublime-project",
 		"/C/git/hbs.ui/dist/hbs.ui.min.js",
 		"/V/htdocs/wwwhbs/shared/js/widgets/widgets.videos.js",
 		"/C/git/hbs.ui/dist/hbs.ui.js",
-		"/C/git/hbs.ui/scss/hbs.ui.scss",
 		"/C/git/hbs.ui/README.md",
-		"/C/git/hbs.ui/js/people-picker.js",
 		"/C/git/hbs.ui/examples/people-picker/people-picker.html",
 		"/C/git/hbs.ui/examples/people-picker/react-hello.html",
-		"/C/git/hbs.ui/examples/jwplayer/jwplayer.html",
 		"/V/htdocs/wwwhbs/shared/docs/examples/ui/t3/people-picker-example-t3.html",
 		"/V/htdocs/wwwhbs/shared/docs/examples/ui/t3/people-picker-t3.css",
 		"/V/htdocs/wwwhbs/shared/docs/examples/ui/t3/people-picker-t3.js",
@@ -294,8 +289,6 @@
 		"/C/git/hbs.ui/js/async/css.js",
 		"/V/htdocs/wwwhbs/shared/docs/examples/ui/t3/css.js",
 		"/C/Users/jgriffith/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/git/hbs.ui/js/require.js",
-		"/C/git/hbs.ui/js/t3.js",
 		"/V/htdocs/wwwhbs/sharepoint/wcm/js/wcm.editform-plugins.taxonomy.js",
 		"/C/Users/jgriffith/AppData/Roaming/Sublime Text 3/Packages/User/JSLint.sublime-settings",
 		"/V/htdocs/wwwhbs/shared/docs/examples/ui/people-picker-example.html",
@@ -386,21 +379,11 @@
 		"/V/htdocs/wwwhbs/shared/js/widgets/samples/video-settings.html",
 		"/V/htdocs/wwwhbs/shared/docs/examples/videos-seeking.html",
 		"/P/htdocs/wwwhbs/shared/js/widgets.js",
-		"/V/htdocs/wwwhbs/shared/js/widgets/widgets.sharebar.js",
-		"/P/htdocs/securelib/static/shared/js/widgets.js",
-		"/V/htdocs/wwwhbs/shared/js/analytics/analytics.js",
-		"/V/htdocs/wwwhbs/shared/docs/examples/audio.html",
-		"/P/htdocs/securelib/static/js/analytics.js",
-		"/C/Users/jgriffith/Desktop/test1.json",
-		"/V/htdocs/wwwhbs/services/data.html",
-		"/P/htdocs/wwwhbs/404.html",
-		"/P/cgi-bin/wwwhbs/404.cgi",
-		"/P/cgi-bin/system/lib/Redirect/Redirect.pm",
-		"/P/htdocs/wwwhbs/shared/components/search1/xsl/search1-renderings-er.xsl"
+		"/V/htdocs/wwwhbs/shared/js/widgets/widgets.sharebar.js"
 	],
 	"find":
 	{
-		"height": 21.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -574,95 +557,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/require.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15292,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/t3.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7046,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/react-hello.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 427,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								213,
-								213
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -699,7 +595,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 162.0
+		"height": 23.0
 	},
 	"output.find_results":
 	{
@@ -718,6 +614,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"react-hel",
+				"examples\\react-hello\\react-hello.html"
+			],
+			[
+				"people-",
+				"js\\people-picker.js"
+			],
+			[
+				"app",
+				"js\\app.js"
+			],
+			[
+				"jwpla",
+				"js\\jwplayer.js"
+			],
 			[
 				"jwpl",
 				"js\\jwplayer.js"
@@ -1213,34 +1125,22 @@
 			[
 				"servi",
 				"Jira\\DailyReport3\\collectors\\ServiceNow.py"
-			],
-			[
-				"framework",
-				"shared\\css\\framework.less"
-			],
-			[
-				"issues",
-				"Jira\\DailyReport3\\db\\jira-issues.json"
-			],
-			[
-				"wcmsca",
-				"wcm\\js\\wcm.authoring.scaffold.js"
-			],
-			[
-				"service",
-				"Jira\\DailyReport3\\collectors\\ServiceNow.py"
 			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"C:\\Users\\jgriffith\\Desktop\\web.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

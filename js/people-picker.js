@@ -9,16 +9,18 @@ HBS.UI.addModule('people-picker', function(context) {
         context.autocomplete(params.term, function(results) {
         	data.results = results;
             callback(data);
-        })
-    };
+        });
+    }
     
     return {
         init: function() {
 
-			context.autocomplete = eval(context.getConfig('autocomplete'));
+            /* jshint ignore:start */
+            context.autocomplete = eval(context.getConfig('autocomplete'));
+            /* jshint ignore:end */
 
             var libs = ['https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.js',
-                        'css!https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.css']
+                        'css!https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.css'];
 
             require(libs, function() {
                 $("select", context.element).each(function() {
@@ -36,10 +38,10 @@ HBS.UI.addModule('people-picker', function(context) {
                         var options = {};
                         if (context.autocomplete) options.dataAdapter = CustomData;
                         $(el).select2(options);
-                    })
+                    });
 
                 });
-            })
+            });
         }
     };
 

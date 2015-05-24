@@ -11,7 +11,8 @@ var jsx = require('gulp-jsx');
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('js/*.js')
+    return gulp.src(['js/*.js','!js/require.js','!js/t3.js'])
+        .pipe(jsx({factory:'React.createElement'}))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -36,9 +37,9 @@ gulp.task('scripts', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['scripts']);
+    gulp.watch('js/*.js', ['lint','scripts']);
     gulp.watch('scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['sass', 'scripts', 'watch']);
+gulp.task('default', ['lint','sass', 'scripts', 'watch']);

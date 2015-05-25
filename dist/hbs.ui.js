@@ -3272,15 +3272,14 @@ HBS.UI.addModule('framework', function(context) {
     return {
         init: function() {
             
-            var libs = ['https://secure.hbs.edu/static/shared/js/framework.js',
-                        'css!https://secure.hbs.edu/static/shared/css/framework.css'];
+            var libs = ['https://secure.hbs.edu/static/shared/js/framework.js']
+                        //'css!https://secure.hbs.edu/static/shared/css/framework.css'];
 
             require(libs,function(){
 
                 var frameworkClasses = 'grid-framework type-framework color-framework type-framework pattern-framework component-framework js-framework responsive-framework';
                 $(context.element).addClass(frameworkClasses);
                 $(document).trigger('framework.domupdate');
-                $(context.element).show();
             });
 
         }
@@ -3303,7 +3302,7 @@ HBS.UI.addModule('hello-angular', function(context) {
             });
         });
 
-        context.element.innerHTML = '<div ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"><br/>Angular Hello: {{greeting}}</div>';
+        context.element.innerHTML = '<p ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"><br/>Angular Hello: {{greeting}}</p>';
 
         angular.bootstrap(document, ['hello']);        
     }
@@ -3346,7 +3345,7 @@ HBS.UI.addModule('hello-ember', function(context) {
 
     function main(Ember){
         
-        var App = Ember.Application.create();
+        var App = Ember.Application.create({rootElement: context.element});
         App.IndexView = Ember.View.extend({
           elementId: 'hello',
           templateName: 'index',
@@ -3360,7 +3359,7 @@ HBS.UI.addModule('hello-ember', function(context) {
         messages: [ 'greetingchanged' ],
 
         onmessage: function(name,data) {
-            if (name == 'greetingchanged' && Ember && Ember.View) Ember.View.views.hello.set('name',data);
+            if (name == 'greetingchanged' && window.Ember && Ember.View) Ember.View.views.hello.set('name',data);
         },
 
         init: function() {
@@ -3486,10 +3485,10 @@ HBS.UI.addModule('hello-react', function(context) {
           },
           render: function() {
             return (
-                React.createElement("h2", null, 
+                React.createElement("p", null, 
                   "React Hello: ", this.props.name
                 )
-            );
+            );  
           }
         });
 

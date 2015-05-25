@@ -21,7 +21,7 @@ HBS.UI.addModule('hello-ember', function(context) {
 
     function main(Ember){
         
-        var App = Ember.Application.create();
+        var App = Ember.Application.create({rootElement: context.element});
         App.IndexView = Ember.View.extend({
           elementId: 'hello',
           templateName: 'index',
@@ -35,7 +35,7 @@ HBS.UI.addModule('hello-ember', function(context) {
         messages: [ 'greetingchanged' ],
 
         onmessage: function(name,data) {
-            if (name == 'greetingchanged' && Ember && Ember.View) Ember.View.views.hello.set('name',data);
+            if (name == 'greetingchanged' && window.Ember && Ember.View) Ember.View.views.hello.set('name',data);
         },
 
         init: function() {

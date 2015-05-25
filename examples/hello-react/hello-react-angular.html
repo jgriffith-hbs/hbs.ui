@@ -6,22 +6,40 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
  
+        <link rel="stylesheet" type="text/css" href="http://webdev.hbs.edu/shared/css/framework.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="../../dist/hbs.ui.css"/>
+
         <script type="text/javascript" src="../../dist/hbs.ui.js"></script>
 
     </head>
     <body>
 
-    <h1>React+Angular Communication</h1>
+    <div style="margin: 2em;">
+    
+        <div class="type-framework color-framework">
+           <div class="teal eta">React+Angular+Ember Communication</div>
+        </div>
 
-    <div data-module="hello-react"></div>
-    <div data-module="hello-angular"></div>
-    <div data-module="hello-ember">
-        
-        <script type="text/x-handlebars" data-template-name='index'>
-          <p>Ember Hello: {{view.name}}</p>
-        </script>
-         
+
+        <div data-module="hello-react"></div>
+
+        <div data-module="hello-angular"></div>
+
+        <div data-module="hello-ember">
+            <script type="text/x-handlebars" data-template-name='index'>
+              <p>Ember Hello: {{view.name}}</p>
+            </script>
+        </div>
+
+
+        <a href="#">Inbox <span class="badge">42</span></a>
+
+        <button class="btn btn-primary" type="button">
+          Messages <span class="badge">4</span>
+        </button>
+
+
     </div>
 
     </body>

@@ -11,10 +11,10 @@ HBS.UI.addModule('hello-react', function(context) {
           },
           render: function() {
             return (
-                React.createElement("h2", null, 
+                React.createElement("p", null, 
                   "React Hello: ", this.props.name
                 )
-            );
+            );  
           }
         });
 

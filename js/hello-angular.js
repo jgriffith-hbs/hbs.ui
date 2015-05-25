@@ -12,7 +12,7 @@ HBS.UI.addModule('hello-angular', function(context) {
             });
         });
 
-        context.element.innerHTML = '<div ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"><br/>{{greeting}}</div>';
+        context.element.innerHTML = '<div ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"><br/>Angular Hello: {{greeting}}</div>';
 
         angular.bootstrap(document, ['hello']);        
     }

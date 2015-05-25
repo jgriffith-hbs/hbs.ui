@@ -3303,7 +3303,7 @@ HBS.UI.addModule('hello-angular', function(context) {
             });
         });
 
-        context.element.innerHTML = '<div ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"><br/>{{greeting}}</div>';
+        context.element.innerHTML = '<div ng-controller="HelloController"><input type="text" name="firstname" ng-model="greeting"><br/>Angular Hello: {{greeting}}</div>';
 
         angular.bootstrap(document, ['hello']);        
     }
@@ -3317,6 +3317,57 @@ HBS.UI.addModule('hello-angular', function(context) {
                 main(angular);
             });
 
+        }
+    };
+
+});
+
+
+     
+HBS.UI.addModule('hello-ember', function(context) {
+    var require = context.getGlobal('require');
+
+
+    // Define libraries
+    var myrequire = require.config({
+        shim: {
+            Ember: {
+                deps: ['Handlebars'],
+                exports: 'Ember'
+            }
+        },
+        paths: {
+            Ember: 'http://builds.emberjs.com/release/ember.debug',
+            Handlebars: 'http://builds.emberjs.com/release/ember-template-compiler'
+        }
+    });
+
+
+
+    function main(Ember){
+        
+        var App = Ember.Application.create();
+        App.IndexView = Ember.View.extend({
+          elementId: 'hello',
+          templateName: 'index',
+          name: "Albert"
+        });
+
+    }
+
+    return {
+
+        messages: [ 'greetingchanged' ],
+
+        onmessage: function(name,data) {
+            if (name == 'greetingchanged' && Ember && Ember.View) Ember.View.views.hello.set('name',data);
+        },
+
+        init: function() {
+            var libs = ['Ember'];
+            require(libs,function(){ 
+                main(Ember);
+            });
         }
     };
 
@@ -3422,3 +3473,46 @@ HBS.UI.addModule('wysiwyg', function(context) {
 }); 
 
  
+     
+HBS.UI.addModule('hello-react', function(context) {
+    var require = context.getGlobal('require');
+    var greeting = null;
+
+    function main(React){
+        
+        var Greeting = React.createClass({displayName: "Greeting",
+          getDefaultProps: function() {
+            return {name: "Stranger"};
+          },
+          render: function() {
+            return (
+                React.createElement("h2", null, 
+                  "React Hello: ", this.props.name
+                )
+            );
+          }
+        });
+
+        greeting = React.render(
+            React.createElement(Greeting),
+            context.element
+        );
+    }
+
+    return {
+        messages: [ 'greetingchanged' ],
+
+        onmessage: function(name,data) {
+            if (name == 'greetingchanged' && greeting) greeting.setProps({ name: data });
+        },
+
+        init: function() {
+            var libs = ['https://fb.me/react-0.13.3.min.js'];
+            require(libs,function(React){ 
+                main(React);
+            });
+        }
+    };
+
+});
+

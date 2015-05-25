@@ -12,7 +12,7 @@ HBS.UI.addModule('hello-react', function(context) {
           render: function() {
             return (
                 React.createElement("h2", null, 
-                  "Hello ", this.props.name
+                  "React Hello: ", this.props.name
                 )
             );
           }

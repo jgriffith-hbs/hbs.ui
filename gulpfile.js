@@ -25,11 +25,15 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src(['js/require.js','js/t3.js','js/!(require)*.js'])
+    return gulp.src(['js/require.js','js/t3.js','js/!(require)*.js','build/hbs.ui.jsx.js'])
         .pipe(concat('hbs.ui.js'))
         .pipe(gulp.dest('dist'))
         .pipe(rename('hbs.ui.min.js'))
         .pipe(uglify())
+        .on('error', function(e) {
+          console.error(e.message + '\n  in ' + e.fileName)
+          this.end();
+        })
         .pipe(gulp.dest('dist'));
 });
 

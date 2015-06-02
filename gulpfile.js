@@ -20,6 +20,10 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
     return gulp.src('scss/hbs.ui.scss')
         .pipe(sass())
+        .on('error', function(e) {
+          console.error(e.message + '\n  in ' + e.fileName)
+          this.end();
+        })
         .pipe(gulp.dest('dist'));
 });
 

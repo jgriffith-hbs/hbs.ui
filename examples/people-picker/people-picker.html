@@ -5,49 +5,82 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://secure.hbs.edu/static/shared/js/framework.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://secure.hbs.edu/static/shared/css/framework.css"/>
+
  
         <link rel="stylesheet" type="text/css" href="../../dist/hbs.ui.css"/>
         <script type="text/javascript" src="../../dist/hbs.ui.js"></script>
 
+
     </head>
     <body>
 
-    <h1>Basic People Picker</h1>
 
-    <div data-module="people-picker">
-        <select multiple>
-            <option value="1231">Henry Ward Abbot MBA 1971</option>
-            <option value="1232">Rodrigo Abdalla PLDA 15</option>
-            <option value="1233">Derek G. Abrams MBA 2002</option>
-            <option value="1234" selected>Folarin Z. Adeola PLDA 8</option>
-            <option value="1235">Praveen Akkiraju GMP 4</option>
-            <option value="1236">Miho Aoki, MBA 1987</option>
-            <option value="1237" selected>Wendy L. Cockayne MBA 1998</option>
-        </select>
-    </div>
+    <div class="type-framework grid-framework responsive-framework">
+        <div class="container mobile-container tablet-container">
+            <br/>
 
+            <h1 class="eta">Basic People Picker</h1><br/>
 
+            <div data-module="people-picker" class="framework-people-picker">
+                <select multiple>
+                    <option value="1231" selected>Henry Ward Abbot MBA 1971</option>
+                    <option value="1232" selected>Rodrigo Abdalla PLDA 15</option>
+                    <option value="1233" selected>Derek G. Abrams MBA 2002</option>
+                    <option value="1234" selected>Folarin Z. Adeola PLDA 8</option>
+                    <option value="1235" selected>Praveen Akkiraju GMP 4</option>
+                    <option value="1236" selected>Miho Aoki, MBA 1987</option>
+                    <option value="1237" selected>Wendy L. Cockayne MBA 1998</option>
+                </select>
+            </div>
+            <br/>
 
-    <h1>Basic People Picker With Autocomplete</h1>
+            <h1 class="eta">Basic People Picker With Autocomplete</h1><br/>
 
-    <div data-module="people-picker">
+            <div data-module="people-picker" class="framework-people-picker">
+                <script type="text/x-config">{"placeholder":"Add a Recipient"}</script>
+                <script type="text/x-ajax">
+                    {
+                        delay:"250",
+                        url: "http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+                        cache: "true",
+                        dataType:'jsonp',
+                        data: function(params){
+                            return {
+                                'apikey':'cq63wxs5hakj754b6qwr9j4m',
+                                'page_limit':'5',
+                                'q':params.term
+                            }
+                        },
+                        processResults: function (data) {
+                            var finalData = [];
+                            if (data.movies) {
+                                for (var i=0;i<data.movies.length;i++){
+                                    var d = {'id':data.movies[i].id}
+                                    d.text = data.movies[i].title + " " + data.movies[i].year
+                                    finalData.push(d);
+                                }
+                            }
+                            return {results: finalData};
+                        },
+                    }
+                </script>
 
-        <script type="text/x-config">{"autocomplete":"window.autocomplete"}</script>
-        <script>
-        window.autocomplete = function(query,callback){
-            return callback([{id:query,text:query},{id:query+'1',text:query+'2'}])
-        }
-        </script>
+                <select multiple>
+                    <option value="1231">Henry Ward Abbot MBA 1971</option>
+                    <option value="1232">Rodrigo Abdalla PLDA 15</option>
+                    <option value="1233">Derek G. Abrams MBA 2002</option>
+                    <option value="1234" selected>Folarin Z. Adeola PLDA 8</option>
+                    <option value="1235">Praveen Akkiraju GMP 4</option>
+                    <option value="1236">Miho Aoki, MBA 1987</option>
+                    <option value="1237" selected>Wendy L. Cockayne MBA 1998</option>
+                </select>
+            </div>
+        </div>
 
-        <select multiple>
-            <option value="1231">Henry Ward Abbot MBA 1971</option>
-            <option value="1232">Rodrigo Abdalla PLDA 15</option>
-            <option value="1233">Derek G. Abrams MBA 2002</option>
-            <option value="1234" selected>Folarin Z. Adeola PLDA 8</option>
-            <option value="1235">Praveen Akkiraju GMP 4</option>
-            <option value="1236">Miho Aoki, MBA 1987</option>
-            <option value="1237" selected>Wendy L. Cockayne MBA 1998</option>
-        </select>
     </div>
     
     </body>

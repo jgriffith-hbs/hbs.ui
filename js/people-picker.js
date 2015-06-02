@@ -16,7 +16,10 @@ HBS.UI.addModule('people-picker', function(context) {
         init: function() {
 
             /* jshint ignore:start */
-            context.autocomplete = eval(context.getConfig('autocomplete'));
+            $(context.element).find('script').each(function(){
+                context.ajax = eval('(' + $.trim(this.innerText) + ')');
+                console.info(this.innerText);
+            })
             /* jshint ignore:end */
 
             var libs = ['https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.js',
@@ -34,9 +37,14 @@ HBS.UI.addModule('people-picker', function(context) {
                         Utils.Extend(CustomData, ArrayData);
 
                         CustomData.prototype.query = autocompleteQuery;
-
+ 
                         var options = {};
-                        if (context.autocomplete) options.dataAdapter = CustomData;
+                        if (context.ajax) {
+                            options.ajax = context.ajax;
+                            options.minimumInputLength = 2;
+                        }
+                        options.dropdownParent = context.element;
+                        options.placeholder = context.getConfig('placeholder') || "";
                         $(el).select2(options);
                     });
 

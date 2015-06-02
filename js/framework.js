@@ -8,7 +8,7 @@ HBS.UI.addModule('framework', function(context) {
     return {
         init: function() {
             
-            var libs = ['https://secure.hbs.edu/static/shared/js/framework.js']
+            var libs = ['https://secure.hbs.edu/static/shared/js/framework.js'];
                         //'css!https://secure.hbs.edu/static/shared/css/framework.css'];
 
             require(libs,function(){

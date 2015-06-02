@@ -1,15 +1,1 @@
-
-
-[data-module=people-picker] {
-
-	select {
-		opacity: 0;
-		width: 100%;
-	}
-
-	.select-container {
-		width: 100%;
-	}
-
-}
-
+@import 'people-picker.scss'; 

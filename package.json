@@ -27,6 +27,7 @@
     "gulp-sass": "^2.0.1",
     "gulp-jshint": "^1.11.0",
     "gulp-jsx": "^2.0.0",
-    "gulp-react": "^3.0.1"
+    "gulp-react": "^3.0.1",
+    "http-proxy": "^1.11.1"
   }
 }

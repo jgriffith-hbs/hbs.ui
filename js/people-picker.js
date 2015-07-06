@@ -13,6 +13,7 @@ HBS.UI.addModule('people-picker', function(context) {
     }
     
     return {
+
         init: function() {
 
             /* jshint ignore:start */
@@ -30,6 +31,7 @@ HBS.UI.addModule('people-picker', function(context) {
                     var el = this;
 
                     $.fn.select2.amd.require(['select2/data/array', 'select2/utils'], function(ArrayData, Utils) {
+
                         function CustomData($element, options) {
                             CustomData.__super__.constructor.call(this, $element, options);
                         }
